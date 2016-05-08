@@ -2,25 +2,24 @@
 
 Cross-platform plugin for Cordova / PhoneGap to to easily send SMS. Available for **Android**, **iOS**, **Windows Phone 8** and **Windows 10 Universal (BETA)**.
 
+I fork it to modify according [Cordova Plugin Spec](https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html).
+
 ##Installing the plugin
 
 Using the Cordova CLI and NPM, run:
 
-    cordova plugin add cordova-sms-plugin
+    cordova plugin add zhoujianhui-cordova-plugin-sms
 
-It is also possible to install via repo url directly (unstable), run :
-
-    cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
 
 ##Using the plugin
 HTML
-
+```html
     <input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
     <textarea id="messageTxt" placeholder="Enter message"></textarea>
     <input type="button" onclick="app.sendSms()" value="Send SMS" />
-
+```
 Javascript
-
+```javascript
     var app = {
         sendSms: function() {
             var number = document.getElementById('numberTxt').value;
@@ -41,9 +40,9 @@ Javascript
             sms.send(number, message, options, success, error);
         }
     };
-
+```
 On Android, an extra function is exposed to know whether or not you have the permission to send a SMS (Android Marshmallow permission).
-
+```javascript
     var app = {
         checkSMSPermission: function() {
             var success = function (hasPermission) { 
@@ -59,6 +58,7 @@ On Android, an extra function is exposed to know whether or not you have the per
             sms.hasPermission(success, error);
         }
     };
+```
 
 ##FAQ
 ####`sms` is undefined
